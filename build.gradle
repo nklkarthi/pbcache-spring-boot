@@ -18,7 +18,7 @@ apply plugin: 'spring-boot'
 apply plugin: 'nebula.ospackage'
 
 jar {
-    baseName = 'HAZ'
+    baseName = 'pbcache'
     version = '0.0.1-SNAPSHOT'
 }
 
@@ -27,6 +27,7 @@ bootRun {
 }
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+version = "0.0.1"
 
 repositories {
     mavenCentral()
@@ -94,6 +95,6 @@ buildRpm {
     directory("/opt/local/pbcache/log", 0755)
 
     // Creates a symlink to the jar file as an init.d script (this functionality is provided by Spring Boot)
-    link("/etc/init.d/pbcache", "/opt/local/pbcache/lib/pbcache.jar")
+    link("/etc/init.d/pbcache", "/opt/local/pbcache/lib/pbcache-0.0.1-SNAPSHOT.jar")
 
 }
