@@ -15,8 +15,7 @@ import java.util.Set;
 public class HazelcastConfiguration {
 
     @Autowired
-    HazelcastSettings hazelcastSettings;
-
+    ApplicationSettings applicationSettings;
 
     public HazelcastConfiguration() {
     }
@@ -27,22 +26,21 @@ public class HazelcastConfiguration {
         config.setProperty("hazelcast.socket.bind.any", "false");
 
         Set<String> trustedInterfaces = new HashSet<>();
-        trustedInterfaces.add(hazelcastSettings.getIp());
-
+        trustedInterfaces.add(applicationSettings.getIp());
+        setupNetworkConfig(config);
+        return Hazelcast.newHazelcastInstance(config);
+    }
+    
+    public void setupNetworkConfig(Config config) {
         NetworkConfig networkConfig = config.getNetworkConfig();
 
-        networkConfig.setPort(hazelcastSettings.getPort());
+        networkConfig.setPort(applicationSettings.getPort());
         networkConfig.setPortAutoIncrement(false);
 
         networkConfig.getJoin().getMulticastConfig().setEnabled(false);
 
         networkConfig.getJoin().getTcpIpConfig().setEnabled(true);
-        networkConfig.getJoin().getTcpIpConfig().addMember(hazelcastSettings.getIp());
-
-
-        HazelcastInstance hazelcastInstance = Hazelcast.newHazelcastInstance(config);
-
-        return hazelcastInstance;
+        networkConfig.getJoin().getTcpIpConfig().addMember(applicationSettings.getIp());
     }
 
 }

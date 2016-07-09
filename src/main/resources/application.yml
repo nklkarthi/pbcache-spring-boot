@@ -8,17 +8,3 @@ hazelcast-settings:
   ip: 127.0.0.1
   port: 7001
 
----
-spring:
-   profiles: unit-test
-hazelcast-settings:
-  ip: 127.0.0.1
-  port: 8001
-
----
-spring:
-   profiles: sit
-hazelcast-settings:
-  ip: 127.0.0.1
-  port: 9001
-

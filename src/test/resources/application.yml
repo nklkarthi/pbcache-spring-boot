@@ -1,0 +1,10 @@
+spring:
+  profiles.active: unit-test
+---
+spring:
+   profiles: unit-test
+hazelcast-settings:
+  ip: 127.0.0.1
+  port: 8001
+
+

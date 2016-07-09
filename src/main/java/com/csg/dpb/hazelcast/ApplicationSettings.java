@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties
 @ConfigurationProperties(prefix = "hazelcast-settings")
-public class HazelcastSettings {
+public class ApplicationSettings {
 
     private String ip;
 
