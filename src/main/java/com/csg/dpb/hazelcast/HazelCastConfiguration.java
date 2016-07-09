@@ -30,7 +30,7 @@ public class HazelcastConfiguration {
         setupNetworkConfig(config);
         return Hazelcast.newHazelcastInstance(config);
     }
-    
+
     public void setupNetworkConfig(Config config) {
         NetworkConfig networkConfig = config.getNetworkConfig();
 
