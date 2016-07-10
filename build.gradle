@@ -36,8 +36,9 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter')
+    compile group: 'javax.cache', name: 'cache-api', version: '1.0.0'
     // https://mvnrepository.com/artifact/com.hazelcast/hazelcast-spring
-    compile group: 'com.hazelcast', name: 'hazelcast-spring', version: '3.7-EA'
+    compile group: 'com.hazelcast', name: 'hazelcast-all', version: '3.7-EA'
     compile group: 'com.netflix.nebula', name: 'gradle-ospackage-plugin', version: '3.6.1'
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

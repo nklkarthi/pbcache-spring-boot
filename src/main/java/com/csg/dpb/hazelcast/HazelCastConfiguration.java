@@ -8,26 +8,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Configuration
 public class HazelcastConfiguration {
 
     @Autowired
-    ApplicationSettings applicationSettings;
+    HazelcastMemberSettings applicationSettings;
 
     public HazelcastConfiguration() {
     }
 
-    @Bean(name = "ClusterMember", destroyMethod = "shutdown")
+    @Bean
     public HazelcastInstance createMember() {
         Config config = new Config();
-        config.setProperty("hazelcast.socket.bind.any", "false");
-
-        Set<String> trustedInterfaces = new HashSet<>();
-        trustedInterfaces.add(applicationSettings.getIp());
         setupNetworkConfig(config);
+        setupGroupConfig(config);
         return Hazelcast.newHazelcastInstance(config);
     }
 
@@ -43,4 +37,7 @@ public class HazelcastConfiguration {
         networkConfig.getJoin().getTcpIpConfig().addMember(applicationSettings.getIp());
     }
 
+    public void setupGroupConfig(Config config) {
+        config.getGroupConfig().setName("dev").setPassword("dev-pass");
+    }
 }
