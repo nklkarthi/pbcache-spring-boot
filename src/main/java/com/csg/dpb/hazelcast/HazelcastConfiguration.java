@@ -22,7 +22,14 @@ public class HazelcastConfiguration {
         Config config = new Config();
         setupNetworkConfig(config);
         setupGroupConfig(config);
+        setupAdminConfig(config);
         return Hazelcast.newHazelcastInstance(config);
+    }
+
+    private void setupAdminConfig(Config config) {
+        config.getManagementCenterConfig().setEnabled(true);
+        config.getManagementCenterConfig().setUrl("http://localhost:8080/mancenter");
+
     }
 
     public void setupNetworkConfig(Config config) {

@@ -16,19 +16,33 @@ public class HazelcastMemberSettings {
 
     private int port;
 
-    public int getPort() {
-        return port;
-    }
-
-    public void setPort(int port) {
-        this.port = port;
-    }
-
+    /**
+     * @return Gets the value of ip and returns ip
+     */
     public String getIp() {
         return ip;
     }
 
+    /**
+     * Sets the ip
+     * You can use getIp() to get the value of ip
+     */
     public void setIp(String ip) {
         this.ip = ip;
+    }
+
+    /**
+     * @return Gets the value of port and returns port
+     */
+    public int getPort() {
+        return port;
+    }
+
+    /**
+     * Sets the port
+     * You can use getPort() to get the value of port
+     */
+    public void setPort(int port) {
+        this.port = port;
     }
 }
