@@ -7,27 +7,27 @@ spring:
 spring:
   profiles: dev
   hazelcast:
-    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-spring-boot/install/unix/config/hazelcast-dev.xml
+    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-spring-boot/config/hazelcast-dev.xml
 
 ---
 
 spring:
   profiles: sit
   hazelcast:
-    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-spring-boot/install/unix/config/hazelcast-sit.xml
+    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-spring-boot/config/hazelcast-sit.xml
 
 ---
 spring:
   profiles: uat
   hazelcast:
-    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-spring-boot/install/unix/config/hazelcast-uat.xml
+    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-spring-boot/config/hazelcast-uat.xml
 
 ---
 
 spring:
   profiles: prod
   hazelcast:
-    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-spring-boot/install/unix/config/hazelcast-prod.xml
+    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-spring-boot/config/hazelcast-prod.xml
 
 
 

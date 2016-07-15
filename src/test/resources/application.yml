@@ -5,7 +5,7 @@ spring:
 spring:
   profiles: test
   hazelcast:
-    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-spring-boot/install/unix/config/hazelcast-dev.xml
+    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-spring-boot/config/hazelcast-dev.xml
 
 
 
